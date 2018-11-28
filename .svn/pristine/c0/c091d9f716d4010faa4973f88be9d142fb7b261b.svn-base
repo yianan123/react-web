@@ -1,0 +1,30 @@
+import IconList from '../asset/icon/index'
+import Home from '../view/home/Home'
+import About from '../view/about/About'
+import Mine from '../view/mine/Mine'
+const config = [
+    {
+        name:'home',
+        path:'/',
+        component:Home ,
+        iconUrl:  IconList.book,  
+        checkIconUrl:  IconList.bookCheck
+    },
+    {
+        name:'about',
+        path:'/about',
+        component:About,
+        iconUrl:  IconList.book,  
+        checkIconUrl:  IconList.bookCheck
+
+    },
+    {
+        name:'mine',
+        path:'/mine',
+        component:Mine,
+        iconUrl:  IconList.book,  
+        checkIconUrl:  IconList.bookCheck 
+
+    }
+]
+export default config

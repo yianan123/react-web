@@ -1,0 +1,9 @@
+import React from 'react'
+class NewsEntertainment extends React.Component{
+    render(){
+        return(
+            <div>NewsEntertainment</div>
+        )
+    }
+}
+export default NewsEntertainment

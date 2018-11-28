@@ -1,0 +1,15 @@
+import React from 'react'
+class NewsCar extends React.Component {
+    componentWillMount() {
+        this.getData()
+    }
+    async getData() {
+    
+    }
+    render() {
+        return (
+            <div>NewsCar</div>
+        )
+    }
+}
+export default NewsCar

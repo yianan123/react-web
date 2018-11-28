@@ -1,0 +1,9 @@
+import asyncComponent from  '../../router/ansycComponent.js'
+const _import_views = file => asyncComponent(() => import(`./component/${file}`))
+let t =['NewsHot','NewsCar','NewsEntertainment','NewsSociety','NewsTech','QuestionAndAnswer','Video']
+let o ={}
+t.forEach(e=>{
+    o[e] = _import_views(e)
+})
+console.log(o)
+export default o 

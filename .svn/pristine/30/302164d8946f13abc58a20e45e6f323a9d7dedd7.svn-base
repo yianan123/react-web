@@ -1,0 +1,9 @@
+import React from 'react'
+class QuestionAndAnswer extends React.Component{
+    render(){
+        return(
+            <div>QuestionAndAnswer</div>
+        )
+    }
+}
+export default QuestionAndAnswer

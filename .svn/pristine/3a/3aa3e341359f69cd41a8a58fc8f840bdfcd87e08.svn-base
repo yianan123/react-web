@@ -1,0 +1,6 @@
+import book from './book.svg'
+import bookCheck from './bookCheck.svg'
+export default {
+    book,
+    bookCheck
+}

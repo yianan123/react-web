@@ -1,0 +1,9 @@
+import React from 'react'
+class NewsTech extends React.Component{
+    render(){
+        return(
+            <div>NewsTech</div>
+        )
+    }
+}
+export default NewsTech

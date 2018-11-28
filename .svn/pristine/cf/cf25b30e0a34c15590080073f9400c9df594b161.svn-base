@@ -1,0 +1,22 @@
+import React from 'react'
+import allComponent from './contConfig'
+class ContentWrap extends React.Component{
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps)
+  }
+  toHump(name){
+    var re=/_(\w)/g;
+    let t =name.replace(re,function ($0,$1){
+        return $1.toUpperCase();
+    })
+    return t.substring(0,1).toUpperCase()+t.substring(1);
+  }
+  render(){
+    let name = this.toHump(this.props.category)
+    let RenderComponents = allComponent[name]
+    return(
+      <RenderComponents />
+    )
+  }  
+}
+export default ContentWrap;

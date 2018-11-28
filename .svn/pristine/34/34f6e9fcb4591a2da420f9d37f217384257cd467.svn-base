@@ -1,0 +1,59 @@
+import React from 'react'
+import {DatePicker, List,Toast} from 'antd-mobile';
+var maxDate =  new Date()
+class Home extends React.Component {
+    state = {
+        date: '',
+        data:{}
+    }
+    async componentWillMount() {
+        // let t = await this.getData()
+        this.setState({date:new Date()})
+        let t =  this.formatDate(new Date())
+        let item = await  this.getData(t)
+        this.setState({data:item})
+    }
+    async handlerDateChange(a) {
+        this.setState({date: a})
+        var date = new Date(a)
+        let t =  this.formatDate(date)
+        let item = await  this.getData(t)
+        this.setState({data:item})
+    }
+    async getData(date){
+        Toast.loading(`加载中`,3)
+        let url = `https://interface.meiriyiwen.com/article/day?dev=1&date=${date}`
+        let res = await fetch(url)
+        let result = await res.json()
+        Toast.hide({showIframe:123})
+        return result.data
+    }
+    formatDate(date){
+       let [year,month,day] =  [date.getFullYear(),date.getMonth() + 1,date.getDate()].map(e=>e<10?"0"+e:e)
+       return [year,month,day].join('')
+    }
+    render() {
+        let {author,digest,content,title} = this.state.data
+        return (
+            <div className='homeContent'>
+                <List className="date-picker-list" style={{ backgroundColor: 'white' }}>
+                    <DatePicker
+                        mode="date"
+                        value={this.state.date}
+                        maxDate={maxDate}
+                        onChange={this.handlerDateChange.bind(this)}>
+                        <List.Item arrow="horizontal">请选择日期</List.Item>
+                    </DatePicker>
+                </List>
+                <div className='page-content'>
+                    <div className='title'>{title}</div>
+                    <div className='cont'>
+                        [content]
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default Home

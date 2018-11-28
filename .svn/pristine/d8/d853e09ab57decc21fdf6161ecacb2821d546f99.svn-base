@@ -1,0 +1,26 @@
+import React from 'react'
+class NewsHot extends React.Component {
+    componentWillMount() {
+        this.getData()
+    }
+    async getData() {
+        console.log(fetch)
+        fetch("http://is.snssdk.com/api/news/feed/v51/?category=news_hot", {method: 'GET',dataType:'JSONP'}).then(function (response) {
+            // 使用return 将数据返回对象。
+            console.log(response)
+            return response.json();
+        })
+            .then(function (data) {
+                console.log('返回json数据', data);
+            })
+            .catch(function (ex) {
+                console.log('parsing failed', ex)
+            })
+    }
+    render() {
+        return (
+            <div>NewsHot</div>
+        )
+    }
+}
+export default NewsHot

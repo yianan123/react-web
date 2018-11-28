@@ -1,0 +1,30 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import './iframe.scss'
+
+class Iframe extends React.Component{
+    constructor(props){
+        super(props)
+        this.state ={
+
+        }                  
+    }
+    render(){
+        let {url,show} = this.props
+        console.log(url,show)
+        let c = (
+            <div className='iframe-content' >
+                <iframe title='ff' src={url}  frameBorder="0" scrolling="auto"></iframe>
+            </div>
+        )
+        return (
+            show?c:null 
+        )
+    }
+
+}
+Iframe.propTypes ={
+    url:PropTypes.string,
+    show:PropTypes.bool
+}
+export default Iframe
